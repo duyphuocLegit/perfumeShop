@@ -25,8 +25,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -110,14 +114,17 @@ public class AdminServiceImpl implements AdminService {
     private MessageResponse savePerfume(PerfumeRequest perfumeRequest, MultipartFile file, String message) throws IOException {
         Perfume perfume = modelMapper.map(perfumeRequest, Perfume.class);
         if (file != null && !Objects.requireNonNull(file.getOriginalFilename()).isEmpty()) {
-            File uploadDir = new File(uploadPath);
+            Path uploadDir = Paths.get(uploadPath);
 
-            if (!uploadDir.exists()) {
-                uploadDir.mkdir();
+            if (Files.notExists(uploadDir)) {
+                Files.createDirectories(uploadDir);
             }
             String uuidFile = UUID.randomUUID().toString();
             String resultFilename = uuidFile + "." + file.getOriginalFilename();
-            file.transferTo(new File(uploadPath + "/" + resultFilename));
+            Path resultFilePath = uploadDir.resolve(resultFilename);
+            try (InputStream inputStream = file.getInputStream()) {
+                Files.copy(inputStream, resultFilePath, StandardCopyOption.REPLACE_EXISTING);
+            }
             perfume.setFilename(resultFilename);
         }
         perfumeRepository.save(perfume);
