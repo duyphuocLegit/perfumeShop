@@ -3,7 +3,7 @@
 This E-commerce project built on Spring Boot.<br>
 
 User credentials:<br>
-Login: test123@test.com <br>
+Login: duyyphuoc2@gmail.com <br>
 Password: admin
 
 Admin credentials:<br>
