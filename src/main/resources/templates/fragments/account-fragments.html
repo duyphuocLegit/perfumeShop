@@ -1,11 +1,11 @@
 <th:block th:fragment="account-sidebar" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <div class="col-md-2">
-        <h4>
+        <h4 class="pb-4">
             <i class="fas fa-user-edit mr-1"></i>
             Account
         </h4>
         <a class="account-sidebar-link nav-link" href="/user/info">Personal data</a>
-        <a class="account-sidebar-link nav-link" href="/user/reset">Change password</a>
+<!--        <a class="account-sidebar-link nav-link" href="/user/reset">Change password</a>-->
         <th:block sec:authorize="hasAuthority('ADMIN')">
             <a class="account-sidebar-link nav-link" href="/admin/add/perfume">Add perfume</a>
             <a class="account-sidebar-link nav-link" href="/admin/perfumes">List of perfumes</a>

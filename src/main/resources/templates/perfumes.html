@@ -64,6 +64,7 @@
         <div class="container mb-5">
             <div class="container-fluid mt-5 ml-1">
                 <form action="/perfume/search" method="get" style="justify-content: center">
+                    <!--/*@thymesVar id="options" type=""*/-->
                     <th:block th:replace="~{fragments/common-fragments :: search(
                         options=(${ {
                             { value: 'perfumer', text: 'Brand' },

@@ -28,7 +28,7 @@
                             } })
                         )}"></div>
                     </form>
-                    <div th:insert="~{fragments/common-fragments :: pagination}"></div>
+<!--                    <div th:insert="~{fragments/common-fragments :: pagination}"></div>-->
                     <th:block th:if="${page.getContent().size() == 0}"
                               th:insert="~{fragments/common-fragments :: empty-result(text='Orders not found')}"/>
                     <table th:unless="${page.getContent().size() == 0}" class="table mt-4 border text-center">

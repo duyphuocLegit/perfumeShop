@@ -1,6 +1,6 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/common-fragments :: head"></head>
+<html xmlns:th="http://www.thymeleaf.org" lang="EN">
+<head th:replace="fragments/common-fragments :: head"><title>HOME</title></head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
 <div th:replace="fragments/common-fragments :: navbar"></div>
@@ -64,14 +64,14 @@
             <div class="col-lg-6">
                 <div class="card mb-5">
                     <a th:href="${'/perfume?genders=female'}">
-                        <img class="img-fluid" src="https://i.ibb.co/jMmJs60/Them-Woman-ENG.jpg">
+                        <img class="img-fluid" src="https://i.ibb.co/jMmJs60/Them-Woman-ENG.jpg" alt="Them-Woman-ENG">
                     </a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card mb-5">
                     <a th:href="${'/perfume?genders=male'}">
-                        <img class="img-fluid" src="https://i.ibb.co/mJGKz8c/Them-Man-ENG.jpg">
+                        <img class="img-fluid" src="https://i.ibb.co/mJGKz8c/Them-Man-ENG.jpg" alt="Them-Man-ENG">
                     </a>
                 </div>
             </div>
