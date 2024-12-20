@@ -34,11 +34,11 @@
                     <table th:unless="${page.getContent().size() == 0}" class="table mt-4 border text-center">
                         <thead class="table-active">
                         <tr>
-                            <th>Order №</th>
+                            <th>Order No</th>
                             <th>Date</th>
                             <th>Customer</th>
                             <th>Email</th>
-                            <th>Sum, $</th>
+                            <th>Total</th>
                             <th></th>
                         </tr>
                         <tbody th:each="order : ${page.getContent()}">

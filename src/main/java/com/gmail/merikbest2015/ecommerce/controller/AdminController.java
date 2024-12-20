@@ -6,6 +6,7 @@ import com.gmail.merikbest2015.ecommerce.dto.request.PerfumeRequest;
 import com.gmail.merikbest2015.ecommerce.dto.request.SearchRequest;
 import com.gmail.merikbest2015.ecommerce.dto.response.UserInfoResponse;
 import com.gmail.merikbest2015.ecommerce.service.AdminService;
+import com.gmail.merikbest2015.ecommerce.service.UserService;
 import com.gmail.merikbest2015.ecommerce.utils.ControllerUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +28,7 @@ public class AdminController {
 
     private final AdminService adminService;
     private final ControllerUtils controllerUtils;
+    private final UserService userService;
 
     @GetMapping("/perfumes")
     public String getPerfumes(Pageable pageable, Model model) {

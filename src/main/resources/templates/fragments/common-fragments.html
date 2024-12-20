@@ -29,7 +29,7 @@
 <!--Navbar-->
 <div th:fragment="navbar" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <div class="container-fluid bg-black header-top d-none d-md-block pb-5 pt-5">
-        <img id="logo-main" src="https://i.ibb.co/fqYvrL8/LOGO4.jpg" class="rounded mx-auto d-block"/>
+        <img id="logo-main" src="https://i.ibb.co/fqYvrL8/LOGO4.jpg" class="rounded mx-auto d-block "/>
     </div>
     <div class="container-fluid bg-black">
         <nav id="navbar-main" class="container navbar navbar-expand-lg bg-black text-white navbar-main">
@@ -47,11 +47,13 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <th:block sec:authorize="isAuthenticated()">
+                        <th:block  sec:authorize="hasAuthority('USER')">
                     <li class="nav-item">
                         <a class="nav-link" href="/cart">
                             <i class="fas fa-shopping-cart fa-lg pl-5"></i>
                         </a>
                     </li>
+                        </th:block>
                         <li class="nav-item">
                             <a class="nav-link px-5" href="/user/account">
                                 <i class="fas fa-user"></i>
@@ -175,7 +177,7 @@
                 <h3>Perfume</h3>
                 <p>(066) 696-66-23</p>
                 <br/>
-                <p>from 08:00 to 20:00 without breaks and weekends</p>
+                <p>08:00 - 20:00 without breaks and weekends</p>
             </div>
             <div class="footer-right">
                 <h3>Social networks</h3>
