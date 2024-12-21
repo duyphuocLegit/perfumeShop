@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head th:replace="fragments/common-fragments :: head"></head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
@@ -9,10 +9,10 @@
         <div class="container py-5 bg-white shadow-sm card-height">
             <p class="h4 mb-4 text-center">
                 <i class="fas fa-shopping-cart mr-2"></i>
-                Cart
+                Giỏ hàng
             </p>
             <div class="text-center" th:if="${perfumes.size() == 0}">
-                <p>Cart is empty</p>
+                <p>Giỏ hàng trống</p>
             </div>
             <div th:if="${perfumes.size() > 0}">
                 <div class="card mb-3 mx-auto" style="max-width: 940px;" th:each="perfume : ${perfumes}">
@@ -34,7 +34,7 @@
                                 <form class="d-inline" action="/cart/remove" method="post">
                                     <button class="btn btn-warning mb-2">
                                         <i class="far fa-minus-square mr-2"></i>
-                                        Remove
+                                        Xóa
                                     </button>
                                     <input type="hidden" name="perfumeId" th:value="${perfume.getId()}">
                                 </form>
@@ -45,14 +45,14 @@
                 <hr class="my-3"/>
                 <div class="row">
                     <div class="col-9">
-                        <p class="h5 text-right">Total: $<span th:text="${#aggregates.sum(perfumes.![price])}"></span></p>
+                        <p class="h5 text-right">Tổng cộng: $<span th:text="${#aggregates.sum(perfumes.![price])}"></span></p>
                     </div>
                     <div class="col-3">
                         <form action="/order" method="get" class="ml-3">
                             <div class="form-row">
                                 <button class="btn btn-success">
                                     <i class="fas fa-shopping-bag mr-2"></i>
-                                    Checkout
+                                    Thanh toán
                                 </button>
                             </div>
                         </form>

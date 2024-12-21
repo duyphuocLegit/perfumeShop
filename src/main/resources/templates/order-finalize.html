@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head th:replace="fragments/common-fragments :: head"></head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
@@ -9,8 +8,8 @@
     <div class="py-5">
         <div class="container py-5 px-5 bg-white shadow-sm card-height">
             <div class="container text-center">
-                <h2>Thank you for the order!</h2>
-                <p>Your order number is: <span th:text="${orderId}"></span></p>
+                <h2>Cảm ơn bạn đã đặt hàng!</h2>
+                <p>Số đơn hàng của bạn là: <span th:text="${orderId}"></span></p>
             </div>
         </div>
     </div>

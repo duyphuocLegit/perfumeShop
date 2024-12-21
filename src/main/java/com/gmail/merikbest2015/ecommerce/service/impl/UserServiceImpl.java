@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
         user.setCity(request.getCity());
         user.setAddress(request.getAddress());
         user.setPhoneNumber(request.getPhoneNumber());
-        user.setPostIndex(request.getPostIndex());
+        user.setPostCode(request.getPostCode());
         return new MessageResponse("alert-success", SuccessMessage.USER_UPDATED);
     }
 

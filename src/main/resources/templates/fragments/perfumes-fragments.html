@@ -8,7 +8,7 @@
         </div>
         <div class="text-center align-items-end mb-3">
             <a th:href="@{/perfume/{perfumeId} (perfumeId = ${perfume.getId()})}" class="btn btn-dark">
-                SHOW MORE
+                XEM THÊM
             </a>
         </div>
     </div>
@@ -43,6 +43,6 @@
         <input th:value="${startingPrice}" type="radio" name="price" onChange="this.form.submit()"
                th:checked="${searchRequest.getPrice() != null ? startingPrice == searchRequest.getPrice() : false}"/>
         <span class="cr"><i class="cr-icon fas fa-check"></i></span>
-        <th:block th:text="${startingPrice == 0} ? 'any' : ${startingPrice} + ' - ' + ${endingPrice} + ' $'"></th:block>
+        <th:block th:text="${startingPrice == 0} ? 'bất kỳ' : ${startingPrice} + ' - ' + ${endingPrice} + ' $'"></th:block>
     </label>
 </div>

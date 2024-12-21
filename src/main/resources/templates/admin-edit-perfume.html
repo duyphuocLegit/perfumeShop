@@ -9,78 +9,84 @@
         <div class="container py-5 bg-white shadow-sm card-height">
             <div class="row mx-3">
                 <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
-                <div class="col-md-9 mb-5">
-                    <th:block th:replace="fragments/common-fragments :: info-title(text='Edit perfume', icon='fas fa-edit mr-2')"/>
+                <div class="col-md-8 mb-5">
+                    <th:block
+                            th:replace="fragments/common-fragments :: info-title(text='Chỉnh sửa nước hoa', icon='fas fa-edit mr-2')"/>
                     <form method="post" action="/admin/edit/perfume" enctype="multipart/form-data">
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Perfume title',
+                                    title='Tên',
                                     name='perfumeTitle',
                                     value=(${perfume.getPerfumeTitle()}),
                                     error=(${perfumeTitleError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Brand',
+                                    title='Hãng',
                                     name='perfumer',
                                     value=(${perfume.getPerfumer()}),
                                     error=(${perfumerError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Release year',
+                                    title='Năm phát hành',
                                     name='year',
                                     value=(${perfume.getYear()}),
-                                    error=(${yearError})
+                                    error=(${yearError}),
+                                    type='number'
+
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Country',
+                                    title='Quốc gia',
                                     name='country',
                                     value=(${perfume.getCountry()}),
                                     error=(${countryError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-select(
-                                    title='Perfume type',
+                                    title='Loại nước hoa',
                                     name='type',
                                     options=(${ {'Eau de Parfum', 'Eau de Toilette'} }),
                                     value=(${perfume.getType()}),
                                     error=(${typeError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Volume',
+                                    title='Dung tích (ml)',
                                     name='volume',
                                     value=(${perfume.getVolume()}),
-                                    error=(${volumeError})
+                                    error=(${volumeError}),
+                                    type='number'
+
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-select(
-                                    title='Gender',
+                                    title='Giới tính',
                                     name='perfumeGender',
-                                    options=(${ {'male', 'female'} }),
+                                    options=(${ {'Nam', 'Female'} }),
                                     value=(${perfume.getPerfumeGender()}),
                                     error=(${perfumeGenderError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Top notes',
+                                    title='Mùi hương',
                                     name='fragranceTopNotes',
                                     value=(${perfume.getFragranceTopNotes()}),
                                     error=(${fragranceTopNotesError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Heart notes',
+                                    title='Mô tả 1',
                                     name='fragranceMiddleNotes',
                                     value=(${perfume.getFragranceMiddleNotes()}),
                                     error=(${fragranceMiddleNotesError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Base notes',
+                                    title='Mô tả 2',
                                     name='fragranceBaseNotes',
                                     value=(${perfume.getFragranceBaseNotes()}),
                                     error=(${fragranceBaseNotesError})
                                 )"/>
                                 <th:block th:replace="fragments/account-fragments :: edit-perfume-input(
-                                    title='Price',
+                                    title='Giá ($)',
                                     name='price',
                                     value=(${perfume.getPrice()}),
-                                    error=(${priceError})
+                                    error=(${priceError}),
+                                    type='number'
                                 )"/>
                             </div>
                             <div class="col-md-6">
@@ -88,12 +94,13 @@
                                     <img th:src="@{/img/{path} (path = ${perfume.getFilename()})}"
                                          class="rounded mx-auto w-100 mb-2"/>
                                 </div>
-                                <input type="file" name="file"/>
+                                <input class="pl-5 " type="file" name="file"/>
                             </div>
                         </div>
                         <input type="hidden" name="id" th:value="${perfume.getId()}"/>
                         <input type="hidden" name="filename" th:value="${perfume.getFilename()}"/>
-                        <th:block th:replace="fragments/common-fragments :: icon-button(text='Edit', icon='fas fa-edit mr-2')"/>
+                        <th:block
+                                th:replace="fragments/common-fragments :: icon-button(text='Chỉnh sửa', icon='fas fa-edit mr-2')"/>
                     </form>
                 </div>
             </div>

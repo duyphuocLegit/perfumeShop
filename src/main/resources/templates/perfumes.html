@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head th:replace="fragments/common-fragments :: head"></head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
@@ -12,7 +12,7 @@
             </div>
             <form action="/perfume" method="get">
                 <ul class="list-unstyled components">
-                    <h5>Brand</h5>
+                    <h5>Thương hiệu</h5>
                     <li class="active mb-2" id="homeSubmenu">
                         <ul class="list-unstyled">
                             <li th:insert="fragments/perfumes-fragments :: perfumes-brand-checkbox('Burberry')"></li>
@@ -41,14 +41,14 @@
                             <li th:insert="fragments/perfumes-fragments :: perfumes-brand-checkbox('Victoria`s Secret')"></li>
                         </ul>
                     </li>
-                    <h5>Gender</h5>
+                    <h5>Giới tính</h5>
                     <li class="active mb-2">
                         <ul class="list-unstyled">
                             <li th:insert="fragments/perfumes-fragments :: perfumes-gender-checkbox('female')"></li>
                             <li th:insert="fragments/perfumes-fragments :: perfumes-gender-checkbox('male')"></li>
                         </ul>
                     </li>
-                    <h5>Price</h5>
+                    <h5>Giá</h5>
                     <li class="active mb-2">
                         <ul class="list-unstyled">
                             <li th:insert="fragments/perfumes-fragments :: perfumes-price-checkbox(startingPrice=0, endingPrice=200)"></li>
@@ -64,12 +64,11 @@
         <div class="container mb-5">
             <div class="container-fluid mt-5 ml-1">
                 <form action="/perfume/search" method="get" style="justify-content: center">
-                    <!--/*@thymesVar id="options" type=""*/-->
                     <th:block th:replace="~{fragments/common-fragments :: search(
                         options=(${ {
-                            { value: 'perfumer', text: 'Brand' },
-                            { value: 'perfumeTitle', text: 'Perfume title' },
-                            { value: 'country', text: 'Manufacturer country' }
+                            { value: 'perfumer', text: 'Tên thương hiệu' },
+                            { value: 'perfumeTitle', text: 'Tên sản phẩm' },
+                            { value: 'country', text: 'Năm phát hành' }
                         } })
                     )}"/>
                 </form>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head th:replace="fragments/common-fragments :: head"></head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
@@ -13,23 +13,23 @@
             <div class="col-md-7">
                 <h2 th:text="${perfume.getPerfumeTitle()}"></h2>
                 <h3 th:text="${perfume.getPerfumer()}"></h3>
-                <p>Product code: <span th:text="${perfume.getId()}"></span></p>
-                <p class="product-stock" style="color: #54C0A1">In Stock</p>
+                <p>Mã sản phẩm: <span th:text="${perfume.getId()}"></span></p>
+                <p class="product-stock" style="color: #54C0A1">Còn hàng</p>
                 <div class="row ml-1">
                     <h6 class="mr-5">
                         $<span th:text="${perfume.getPrice()}"></span>.00
                     </h6>
 
-<!--                    ONLY USER CAN ADD TO CART-->
+                    <!--                    CHỈ NGƯỜI DÙNG MỚI CÓ THỂ THÊM VÀO GIỎ HÀNG-->
                     <th:block th:fragment="account-sidebar" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-                    <form action="/cart/add" method="post" th:block sec:authorize="hasAuthority('USER')">
-                        <button  type="submit" name="perfumeId"
-                                class="btn btn-success mx-3"
-                                th:value="${perfume.getId()}">
-                            <i class="fas fa-cart-plus mr-2 fa-lg"></i>
-                            ADD TO CART
-                        </button>
-                    </form>
+                        <form action="/cart/add" method="post" th:block sec:authorize="hasAuthority('USER')">
+                            <button  type="submit" name="perfumeId"
+                                     class="btn btn-success mx-5"
+                                     th:value="${perfume.getId()}">
+                                <i class="fas fa-cart-plus mr-2 fa"></i>
+                                THÊM VÀO GIỎ HÀNG
+                            </button>
+                        </form>
                     </th:block>
 
                 </div>
@@ -37,43 +37,43 @@
                 <table class="table">
                     <tbody>
                     <tr>
-                        <td>Perfume title:</td>
+                        <td>Tên nước hoa:</td>
                         <td th:text="${perfume.getPerfumeTitle()}"></td>
                     </tr>
                     <tr>
-                        <td>Brand:</td>
+                        <td>Thương hiệu:</td>
                         <td th:text="${perfume.getPerfumer()}"></td>
                     </tr>
                     <tr>
-                        <td>Perfume type:</td>
+                        <td>Loại nước hoa:</td>
                         <td th:text="${perfume.getType()}"></td>
                     </tr>
                     <tr>
-                        <td>Release year:</td>
+                        <td>Năm phát hành:</td>
                         <td th:text="${perfume.getYear()}"></td>
                     </tr>
                     <tr>
-                        <td>Volume:</td>
-                        <td><span th:text="${perfume.getVolume()}"></span> ml.</td>
+                        <td>Thể tích:</td>
+                        <td><span th:text="${perfume.getVolume()}"></span> ml</td>
                     </tr>
                     <tr>
-                        <td>Manufacturer country:</td>
+                        <td>Quốc gia sản xuất:</td>
                         <td th:text="${perfume.getCountry()}"></td>
                     </tr>
                     <tr>
-                        <td>Gender:</td>
+                        <td>Giới tính:</td>
                         <td th:text="${perfume.getPerfumeGender()}"></td>
                     </tr>
                     <tr>
-                        <td>Top notes:</td>
+                        <td>Mùi hương:</td>
                         <td th:text="${perfume.getFragranceTopNotes()}"></td>
                     </tr>
                     <tr>
-                        <td>Heart notes:</td>
+                        <td>Mô tả 1:</td>
                         <td th:text="${perfume.getFragranceMiddleNotes()}"></td>
                     </tr>
                     <tr>
-                        <td>Base notes:</td>
+                        <td>Mô tả 2:</td>
                         <td th:text="${perfume.getFragranceBaseNotes()}"></td>
                     </tr>
                     </tbody>

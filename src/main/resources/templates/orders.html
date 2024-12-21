@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head th:replace="fragments/common-fragments :: head"></head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
@@ -9,9 +9,9 @@
         <div class="container py-5 bg-white shadow-sm card-height">
             <div class="row mx-3" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <th:block th:replace="fragments/common-fragments :: info-title(
-                        text='List of all orders',
+                        text='Danh sách tất cả các đơn hàng',
                         icon='fas fa-shopping-bag ml-2 mr-2'
                     )"/>
                     <form class="my-3" method="get" style="justify-content: center"
@@ -23,22 +23,22 @@
                         <div th:replace="~{fragments/common-fragments :: search(
                             options=(${ {
                                 { value: 'email', text: 'Email' },
-                                { value: 'firstName', text: 'First Name' },
-                                { value: 'lastName', text: 'Last Name' }
+                                { value: 'firstName', text: 'Tên' },
+                                { value: 'lastName', text: 'Họ' }
                             } })
                         )}"></div>
                     </form>
-<!--                    <div th:insert="~{fragments/common-fragments :: pagination}"></div>-->
+                    <!--                    <div th:insert="~{fragments/common-fragments :: pagination}"></div>-->
                     <th:block th:if="${page.getContent().size() == 0}"
-                              th:insert="~{fragments/common-fragments :: empty-result(text='Orders not found')}"/>
+                              th:insert="~{fragments/common-fragments :: empty-result(text='Không tìm thấy đơn hàng')}"/>
                     <table th:unless="${page.getContent().size() == 0}" class="table mt-4 border text-center">
                         <thead class="table-active">
                         <tr>
-                            <th>Order No</th>
-                            <th>Date</th>
-                            <th>Customer</th>
+                            <th>Số đơn hàng</th>
+                            <th>Ngày</th>
+                            <th>Khách hàng</th>
                             <th>Email</th>
-                            <th>Total</th>
+                            <th>Tổng cộng</th>
                             <th></th>
                         </tr>
                         <tbody th:each="order : ${page.getContent()}">
@@ -51,14 +51,14 @@
                             <th:block sec:authorize="hasAuthority('ADMIN')">
                                 <th>
                                     <a th:href="@{/admin/order/{orderId} (orderId = ${order.getId()})}">
-                                        Show more
+                                        Xem thêm
                                     </a>
                                 </th>
                             </th:block>
                             <th:block sec:authorize="hasAuthority('USER')">
                                 <th>
                                     <a th:href="@{/order/{orderId} (orderId = ${order.getId()})}">
-                                        Show more
+                                        Xem thêm
                                     </a>
                                 </th>
                             </th:block>

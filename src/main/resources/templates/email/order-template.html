@@ -52,7 +52,7 @@
                                       th:remove="tag"></span></p>
                 <p><b>Address:</b> <span th:text="${order.getCity() + ' ' + order.getAddress()}" th:remove="tag"></span>
                 </p>
-                <p><b>Post index:</b> <span th:text="${order.getPostIndex()}" th:remove="tag"></span></p>
+                <p><b>Post code:</b> <span th:text="${order.getPostCode()}" th:remove="tag"></span></p>
                 <p><b>Phone:</b> <span th:text="${order.getPhoneNumber()}" th:remove="tag"></span></p>
             </div>
             <th:block th:each="perfume : ${order.getPerfumes()}">

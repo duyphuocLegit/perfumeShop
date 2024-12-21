@@ -9,18 +9,18 @@
         <div class="container py-5 bg-white shadow-sm card-height">
             <div class="row mx-3">
                 <th:block th:replace="fragments/account-fragments :: account-sidebar"/>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <th:block th:replace="fragments/common-fragments :: info-title(
-                        text='List of perfumes',
+                        text='Danh sách nước hoa',
                         icon='fas fa-list ml-2 mr-2'
                     )"/>
                     <th:block th:replace="fragments/common-fragments :: alert-message"/>
                     <form class="my-3" action="/admin/perfumes/search" method="get" style="justify-content: center">
                         <div th:insert="~{fragments/common-fragments :: search(
                             options=(${ {
-                                { value: 'perfumer', text: 'Brand' },
-                                { value: 'perfumeTitle', text: 'Perfume title' },
-                                { value: 'country', text: 'Manufacturer country' }
+                                { value: 'perfumer', text: 'Thương hiệu' },
+                                { value: 'perfumeTitle', text: 'Tên nước hoa' },
+                                { value: 'country', text: 'Nước sản xuất' }
                             } })
                         )}"></div>
                     </form>
@@ -28,7 +28,7 @@
                     <form method="get" action="/static">
                         <div class="row" th:fragment="list">
                             <th:block th:if="${page.getContent().size() == 0}"
-                                      th:insert="~{fragments/common-fragments :: empty-result(text='Perfumes not found')}"/>
+                                      th:insert="~{fragments/common-fragments :: empty-result(text='Không tìm thấy nước hoa')}"/>
                             <div class="col-lg-3"
                                  th:unless="${page.getContent().size() == 0}"
                                  th:each="perfume : ${page.getContent()}">
@@ -47,7 +47,7 @@
                                         <a th:href="@{/admin/perfume/{perfumeId} (perfumeId = ${perfume.getId()})}"
                                            class="btn btn-dark">
                                             <i class="fas fa-edit"></i>
-                                            Edit
+                                            Chỉnh sửa
                                         </a>
                                     </div>
                                 </div>

@@ -1,19 +1,19 @@
 <th:block th:fragment="account-sidebar" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-    <div class="col-md-2">
+    <div class="col-md-3">
         <h4 class="pb-4">
             <i class="fas fa-user-edit mr-1"></i>
-            Account
+            Tài khoản
         </h4>
-        <a class="account-sidebar-link nav-link" href="/user/info">Personal data</a>
-<!--        <a class="account-sidebar-link nav-link" href="/user/reset">Change password</a>-->
+        <a class="account-sidebar-link nav-link" href="/user/info">Dữ liệu cá nhân</a>
+        <!--        <a class="account-sidebar-link nav-link" href="/user/reset">Đổi mật khẩu</a>-->
         <th:block sec:authorize="hasAuthority('ADMIN')">
-            <a class="account-sidebar-link nav-link" href="/admin/add/perfume">Add perfume</a>
-            <a class="account-sidebar-link nav-link" href="/admin/perfumes">List of perfumes</a>
-            <a class="account-sidebar-link nav-link" href="/admin/orders">List of all orders</a>
-            <a class="account-sidebar-link nav-link" href="/admin/users">List of all users</a>
+            <a class="account-sidebar-link nav-link" href="/admin/add/perfume">Thêm nước hoa</a>
+            <a class="account-sidebar-link nav-link" href="/admin/perfumes">Danh sách nước hoa</a>
+            <a class="account-sidebar-link nav-link" href="/admin/orders">Danh sách đơn hàng</a>
+            <a class="account-sidebar-link nav-link" href="/admin/users">Danh sách người dùng</a>
         </th:block>
         <th:block sec:authorize="hasAuthority('USER')">
-            <a class="account-sidebar-link nav-link" href="/order/user/orders">List of orders</a>
+            <a class="account-sidebar-link nav-link" href="/order/user/orders">Danh sách đơn hàng</a>
         </th:block>
     </div>
 </th:block>
@@ -74,22 +74,22 @@
 <th:block th:fragment="user-info">
     <div class="col-md-4 mb-5">
         <th:block th:replace="fragments/common-fragments :: info-title(
-            text='Personal data',
+            text='Dữ liệu cá nhân',
             icon='fas fa-address-card mr-2'
         )"/>
         <th:block th:replace="fragments/common-fragments :: alert-message"/>
         <th:block th:replace="fragments/common-fragments :: data-item(title='Email', text=${user.getEmail()})" />
-        <th:block th:replace="fragments/common-fragments :: data-item(title='First name', text=${user.getFirstName()})" />
-        <th:block th:replace="fragments/common-fragments :: data-item(title='Last name', text=${user.getLastName()})" />
-        <th:block th:replace="fragments/common-fragments :: data-item(title='City', text=${user.getCity()})" />
-        <th:block th:replace="fragments/common-fragments :: data-item(title='Address', text=${user.getAddress()})" />
-        <th:block th:replace="fragments/common-fragments :: data-item(title='Phone number', text=${user.getPhoneNumber()})" />
-        <th:block th:replace="fragments/common-fragments :: data-item(title='Post index', text=${user.getPostIndex()})" />
+        <th:block th:replace="fragments/common-fragments :: data-item(title='Tên', text=${user.getFirstName()})" />
+        <th:block th:replace="fragments/common-fragments :: data-item(title='Họ', text=${user.getLastName()})" />
+        <th:block th:replace="fragments/common-fragments :: data-item(title='Thành phố', text=${user.getCity()})" />
+        <th:block th:replace="fragments/common-fragments :: data-item(title='Địa chỉ', text=${user.getAddress()})" />
+        <th:block th:replace="fragments/common-fragments :: data-item(title='Số điện thoại', text=${user.getPhoneNumber()})" />
+        <th:block th:replace="fragments/common-fragments :: data-item(title='Mã bưu điện', text=${user.getPostCode()})" />
         <a th:with="isUserEditOpen=${#request.getRequestURI() == '/user/info/edit'}"
            th:href="@{${isUserEditOpen} ? '/user/info' : '/user/info/edit'}"
            role="button">
             <th:block th:replace="fragments/common-fragments :: icon-button(
-                text=(${isUserEditOpen} ? 'Hide' : 'Edit'),
+                text=(${isUserEditOpen} ? 'Ẩn' : 'Chỉnh sửa'),
                 icon=(${isUserEditOpen} ? 'fas fa-eye-slash mr-2' : 'fas fa-edit mr-2'),
                 buttonClassName='mt-2'
             )"/>

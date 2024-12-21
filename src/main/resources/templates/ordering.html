@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  lang="vi">
 <head th:replace="fragments/common-fragments :: head"></head>
 <body>
 <div th:insert="~{fragments/common-fragments :: scripts}"></div>
@@ -11,13 +10,13 @@
             <form action="/order" method="post" enctype="multipart/form-data">
                 <h4 class="mb-4 text-center">
                     <i class="fas fa-shopping-bag mr-2"></i>
-                    Ordering
+                    Đặt hàng
                 </h4>
                 <br/>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Name:</label>
+                            <label class="col-sm-3 col-form-label">Tên:</label>
                             <div class="col-sm-8">
                                 <input type="text" name="firstName" th:value="${order} ? ${order.firstName} : ''"
                                        class="form-control" th:classappend="${firstNameError} ? ' is-invalid'"/>
@@ -26,15 +25,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Last name:</label>
+                            <label class="col-sm-3 col-form-label">Họ:</label>
                             <div class="col-sm-8">
-                                <input type="text" name="lastName" th:value="${order} ? ${order.lastName} : ''"
+                                <input type="text" name="lastName" th:value="${order}?${order.lastName}:''"
                                        class="form-control" th:classappend="${lastNameError} ? ' is-invalid'"/>
                                 <div th:if="${lastNameError}" class="invalid-feedback" th:text="${lastNameError}"></div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">City:</label>
+                            <label class="col-sm-3 col-form-label">Thành phố:</label>
                             <div class="col-sm-8">
                                 <input type="text" name="city" th:value="${order} ? ${order.city} : ''"
                                        class="form-control" th:classappend="${cityError} ? ' is-invalid'"/>
@@ -42,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Address:</label>
+                            <label class="col-sm-3 col-form-label">Địa chỉ:</label>
                             <div class="col-sm-8">
                                 <input type="text" name="address" th:value="${order} ? ${order.address} : ''"
                                        class="form-control" th:classappend="${addressError} ? ' is-invalid'"/>
@@ -50,16 +49,17 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Index:</label>
+                            <label class="col-sm-3 col-form-label">Mã bưu điện:</label>
                             <div class="col-sm-8">
-                                <input type="text" name="postIndex" th:value="${order} ? ${order.postIndex} : '0'"
-                                       class="form-control" th:classappend="${postIndexError} ? ' is-invalid'"/>
-                                <div th:if="${postIndexError}" class="invalid-feedback"
-                                     th:text="${postIndexError}"></div>
+                                <input type="text" name="postCode" th:value="${order} ? ${order.postCode} : ''"
+                                       class="form-control" th:classappend="${postCodeError} ? ' is-invalid'"
+                                       placeholder="700000"/>
+                                <div th:if="${postCodeError}" class="invalid-feedback"
+                                     th:text="${postCodeError}"></div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Mobile:</label>
+                            <label class="col-sm-3 col-form-label">Số điện thoại:</label>
                             <div class="col-sm-8">
                                 <input type="text" name="phoneNumber" th:value="${order} ? ${order.phoneNumber} : ''"
                                        class="form-control" th:classappend="${phoneNumberError} ? ' is-invalid'"
@@ -96,11 +96,11 @@
                         </div>
                         <button class="btn btn-primary btn-lg btn-success px-5 float-right">
                             <i class="fas fa-check-circle"></i>
-                            Validate order
+                            Xác nhận
                         </button>
                         <input type="hidden" name="totalPrice" th:value="${#aggregates.sum(perfumes.![price])}">
                         <div class="row">
-                            <h4>To pay: $ <span th:text="${#aggregates.sum(perfumes.![price])}"></span>.00</h4>
+                            <h4>Thanh toán: $ <span th:text="${#aggregates.sum(perfumes.![price])}"></span>.00</h4>
                         </div>
                     </div>
                 </div>

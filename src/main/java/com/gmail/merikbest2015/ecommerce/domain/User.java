@@ -44,8 +44,8 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "post_index")
-    private String postIndex;
+    @Column(name = "post_code")
+    private String postCode;
 
     @Column(name = "activation_code")
     private String activationCode;

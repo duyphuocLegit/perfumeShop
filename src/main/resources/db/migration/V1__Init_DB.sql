@@ -10,7 +10,7 @@ CREATE TABLE users (
                        password VARCHAR(255) NOT NULL,
                        password_reset_code VARCHAR(255),
                        phone_number VARCHAR(255),
-                       post_index VARCHAR(255)
+                       post_code VARCHAR(255)
 );
 
 
@@ -47,7 +47,7 @@ CREATE TABLE orders (
                         first_name VARCHAR(255) NOT NULL,
                         last_name VARCHAR(255) NOT NULL,
                         phone_number VARCHAR(255) NOT NULL,
-                        post_index INT NOT NULL,
+                        post_code INT NOT NULL,
                         total_price DOUBLE NOT NULL,
                         user_id BIGINT,
                         FOREIGN KEY (user_id) REFERENCES users(id)

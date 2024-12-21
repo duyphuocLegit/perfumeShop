@@ -33,6 +33,6 @@ public class OrderRequest {
     @NotBlank(message = ErrorMessage.EMPTY_PHONE_NUMBER)
     private String phoneNumber;
 
-    @Min(value = 5, message = ErrorMessage.EMPTY_POST_INDEX)
-    private Integer postIndex;
+    @Min(value = 5, message = ErrorMessage.EMPTY_POST_CODE)
+    private Integer postCode;
 }
